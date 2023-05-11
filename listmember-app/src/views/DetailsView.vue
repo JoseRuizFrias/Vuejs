@@ -1,5 +1,5 @@
 <template>
-  <h1>Details View</h1>
+  <h1 class="text-h2">Details View</h1>
   <h3>User Id: {{ id }}</h3>
   <RouterLink class="member--id" to="/">Member List</RouterLink>
 </template>

@@ -1,17 +1,21 @@
 <template>
-  <h1>List Component</h1>
+  <h1 class="text-h2">List Component</h1>
   <div class="filter">
-    <input id="filter-input" v-model="filter" />
-    <button @click="setFilter">SEARCH</button>
+    <v-text-field class="filter--input" v-model="filter" />
+    <v-btn variant="tonal" @click="setFilter">SEARCH</v-btn>
   </div>
-  <ul class="list">
-    <li v-for="member in memberList" :key="member.id" class="list--member">
-      <img :src="member.avatar_url" class="list--member-avatar" />
+  <ul lines="two" class="list">
+    <v-list-item
+      v-for="member in memberList"
+      :key="member.id"
+      class="list--member"
+      :prepend-avatar="member.avatar_url"
+    >
       <div class="list--member-login">{{ member.login }}</div>
       <router-link class="list--member-id" :to="`/details/${member.id}`">{{
         member.id
       }}</router-link>
-    </li>
+    </v-list-item>
   </ul>
 </template>
 <script lang="ts">
@@ -62,7 +66,7 @@ export default defineComponent({
   .list--member {
     display: flex;
     flex-direction: row;
-    padding: 5px;
+    padding: 10px;
 
     .list--member-id {
       padding-left: 15px;
@@ -77,14 +81,15 @@ export default defineComponent({
       padding-left: 15px;
       font-weight: bold;
     }
-    .list--member-avatar {
-      width: 100px;
-    }
   }
 }
 .filter {
   display: flex;
   flex-direction: row;
-  padding-left: 45px;
+  padding: 20px 0px 0px 5px;
+  width: 40%;
+  .filter--input {
+    padding-right: 10px;
+  }
 }
 </style>

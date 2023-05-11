@@ -1,5 +1,4 @@
 <template>
-  <title>ListView</title>
   <MemberListComponent />
 </template>
 <script lang="ts">
